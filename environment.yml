@@ -1,0 +1,5 @@
+name: swe4s_assignment2
+channels:
+  - conda-forge
+dependencies:
+  - pycodestyle
