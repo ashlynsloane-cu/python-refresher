@@ -1,17 +1,56 @@
-# python-refresher
+# Python Refresher
 
-This repository contains Python code for reading agricultural CO2 emissions data.
+This repository contains Python code for reading agricultural CO2 emissions data and printing forest fire emissions for a selected country.
 
-### Changes ###
-- Implemented "get_column()" in "my_utils.py" to read a file line-by-line and return values from a selected column
-- Updated "get_column()" so that "result_column" defauls to column 1
-- Updated "print_fires.py" to print forest fire emissions for the United States
-- Added "run.sh" to run "print_fires.py"
+## Environment Setup
 
-### Running the Script ###
+Create the environment from `environment.yml`:
 
-Run the script with: 
+    mamba env create -f environment.yml
 
-bash run.sh
+Activate the environment:
 
-The data file "Agrofood_co2_emission.csv" must be present in the repo directory but do not commit it to Git.
+    conda activate swe4s_assignment2
+
+The environment includes `pycodestyle` for checking Python style.
+
+## Data File
+
+The script expects `Agrofood_co2_emission.csv` to be present in the repository directory. The data file is not committed to Git.
+
+## Running the Program
+
+`print_fires.py` accepts four required command-line arguments:
+
+- `--country`: country name
+- `--country_column`: column containing country names
+- `--fires_column`: column containing forest fire emissions
+- `--file_name`: input CSV file
+
+Example:
+
+    python print_fires.py \
+        --country "United States of America" \
+        --country_column 0 \
+        --fires_column 3 \
+        --file_name Agrofood_co2_emission.csv
+
+## Running the Examples
+
+Run:
+
+    ./run.sh
+
+The script includes three examples:
+
+1. A valid input example
+2. A missing-file example
+3. An invalid column argument example
+
+## Style Checking
+
+Check the Python files with:
+
+    pycodestyle my_utils.py print_fires.py
+
+No output from `pycodestyle` indicates that no style violations were found.
