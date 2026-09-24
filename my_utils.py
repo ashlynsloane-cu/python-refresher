@@ -32,3 +32,43 @@ def get_column(file_name, query_column, query_value, result_column=1):
     file.close()
 
     return result
+
+
+def mean(data):
+    if len(data) == 0:
+        raise ValueError("Cannot calculate mean of empty list")
+
+    return sum(data) / len(data)
+
+
+def median(data):
+    if len(data) == 0:
+        raise ValueError("Cannot calculate median of empty list")
+
+    sorted_data = sorted(data)
+    middle = len(sorted_data) // 2
+
+    if len(sorted_data) % 2 == 1:
+        return sorted_data[middle]
+
+    return (
+        sorted_data[middle - 1] + sorted_data[middle]
+    ) / 2
+
+
+def stdev(data):
+    if len(data) == 0:
+        raise ValueError(
+            "Cannot calculate standard deviation of empty list"
+        )
+
+    data_mean = mean(data)
+
+    squared_differences = [
+        (value - data_mean) ** 2
+        for value in data
+    ]
+
+    variance = sum(squared_differences) / len(data)
+
+    return variance ** 0.5
