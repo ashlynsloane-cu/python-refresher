@@ -1,4 +1,4 @@
-name: swe4s_assignment2
+name: swe4s_assignment3
 channels:
   - conda-forge
 dependencies:
