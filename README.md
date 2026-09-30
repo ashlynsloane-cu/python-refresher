@@ -127,3 +127,13 @@ pycodestyle my_utils.py print_fires.py test/unit/test_my_utils.py
 ```
 
 No output from `pycodestyle` indicates that no style violations were found.
+
+## Continuous Integration
+
+GitHub Actions automatically runs the unit tests, functional tests, and `pycodestyle` checks whenever any branch is pushed and whenever a pull request is opened against `master`.
+
+The workflow is defined in:
+
+```
+.github/workflows/test.yml
+```
